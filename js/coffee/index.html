@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <titfle>coffee or tea</title>
+</head>
+<body>
+    <script>
+        // 类是一个抽象概念 ，一类对象的属性和方法的模板
+        class Coffee {
+            constructor(type) {
+                console.log('开始泡一杯coffee');
+                this.type = type;
+                this.boilWater();
+                this.brewCoffeeGriends();
+                this.pourInCup();
+                this.addSugarAndMilk();
+            }
+            boilWater() {
+                console.log('把水烧到一百度');
+            }
+            brewCoffeeGriends() {
+                console.log('用沸水冲泡coffee');
+            }
+            pourInCup() {
+                console.log('把coffee倒进杯子');
+            }
+            addSugarAndMilk() {
+                console.log('加糖加奶');
+            }
+        }
+        const cof = new Coffee ('卡布奇诺');
+        const cof2 = new Coffee ('美式');
+        
+        class Tea {
+            constructor(type) {
+                console.log('开始泡一杯茶');
+                this.type = type;
+                this.boilWater();
+                this.brewTeaGriends();
+                this.pourInCup();
+                this.addLemon();
+            }
+            boilWater() {
+                console.log('把水烧到一百度');
+            }
+            brewTeaGriends() {
+                console.log('用沸水冲泡tea');
+            }
+            pourInCup() {
+                console.log('把tea倒进杯子');
+            }
+            addLemon() {
+                console.log('加柠檬');
+            }
+        }
+        const tea = new Tea('龙井');
+    </script>
+</body>
+</html>
