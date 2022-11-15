@@ -1,0 +1,41 @@
+/* css reset 样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.row {
+    display: flex;
+    height: 20vh;
+    background-color: green;
+    margin: 10px 0;
+}
+
+.col {
+    /* 不会把兄弟元素挤下去
+        inline-block 可以设置宽高
+        bug 有间隙
+        列式布局
+    */
+    /* display: inline-block; */
+    width: 10%;
+    background-color: #80ACCF;
+    text-align: center;
+    line-height: 100vh;
+}
+
+.col:nth-child(2n) {
+    background-color:#CD38CD;
+}
+
+.col-7 {
+    width: 70%;
+}
+.col-3 {
+    width: 30%;
+}
+
+.container {
+    width: 300px;
+    margin:auto auto;
+}
