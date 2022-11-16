@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" style="font-size: 37.5px">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function responsive() {
+            const w = window.innerWidth/10
+            // console.log(w);
+            // DOM 编程
+            // 动态的设置html 字体大小为 1rem ，宽度的 1/10
+            document.documentElement.style.fontSize = w + 'px'; 
+        }
+        responsive();
+        window.addEventListener('resize',responsive);
+    </script>
+    <link rel="stylesheet" href="./common.css">
+</head>
+<body>
+    <!-- <img src="./rem-8.png" alt=""> -->
+    <!-- <div class="box" style="width: 5rem; height:5rem; background-color: green;"></div> -->
+    <!-- BEM国际命名规范
+        Block
+    -->
+    <div class="tm-page">
+        <!-- Element_  -->
+        <div class="tm-page__header">
+            <h2>
+                <img src="http://gw.alicdn.com/mt/TB1PNLZKXXXXXaTXXXXXXXXXXXX-750-481.jpg" alt="">
+            </h2>
+        </div>
+        <ul>
+            <!-- tm-item Block item 样式 -->
+            <li class="tm-item">
+                <!-- tm-item_link Element -->
+                <a href="#" class="tm-figure tm-item_link">
+                    <img src="https://placeimg.com/350/350/people/grayscale" alt="">
+                </a>
+                <div class="item-figcaption">
+                    <div class="tm-item__title">
+                        <a href="#">Carter's1年式灰色长袖连体衣包脚爬服全棉鲸鱼男婴儿童装115G093</a>
+                    </div>
+                    <div class="tm-item__price">
+                        <span>双11价格</span>
+                        <strong>$299.86</strong>
+                        <small>(满400减100)</small>
+                    </div>
+                    <div class="tm iyem__type">1小时热卖5885件</div>
+                    <a href="" class="tm-item__btn">马上抢！</a>
+                </div>
+            </li>
+        </ul>
+        <ul>
+            <!-- tm-item Block item 样式 -->
+            <li class="tm-item">
+                <!-- tm-item_link Element -->
+                <a href="#" class="tm-figure tm-item_link">
+                    <img src="https://placeimg.com/350/350/people/grayscale" alt="">
+                </a>
+                <div class="item-figcaption">
+                    <div class="tm-item__title">
+                        <a href="#">Carter's1年式灰色长袖连体衣包脚爬服全棉鲸鱼男婴儿童装115G093</a>
+                    </div>
+                    <div class="tm-item__price">
+                        <span>双11价格</span>
+                        <strong>$299.86</strong>
+                        <small>(满400减100)</small>
+                    </div>
+                    <div class="tm iyem__type">1小时热卖5885件</div>
+                    <a href="" class="tm-item__btn">马上抢！</a>
+                </div>
+            </li>
+        </ul>
+        <ul>
+            <!-- tm-item Block item 样式 -->
+            <li class="tm-item">
+                <!-- tm-item_link Element -->
+                <a href="#" class="tm-figure tm-item_link">
+                    <img src="https://placeimg.com/350/350/people/grayscale" alt="">
+                </a>
+                <div class="item-figcaption">
+                    <div class="tm-item__title">
+                        <a href="#">Carter's1年式灰色长袖连体衣包脚爬服全棉鲸鱼男婴儿童装115G093</a>
+                    </div>
+                    <div class="tm-item__price">
+                        <span>双11价格</span>
+                        <strong>$299.86</strong>
+                        <small>(满400减100)</small>
+                    </div>
+                    <div class="tm iyem__type">1小时热卖5885件</div>
+                    <a href="" class="tm-item__btn">马上抢！</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
