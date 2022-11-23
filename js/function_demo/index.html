@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <script src="./3.js"></script> -->
+    <!-- 语义化标签 对搜索引擎更友好一些 -->
+    <table>
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>名字</th>
+                <th>家乡</th>
+            </tr>
+        </thead>
+        <tbody>
+          <!-- <tr>
+            <td>01</td>
+            <td>edison</td>
+            <td>china</td>
+        </tr>
+        <tr>
+            <td>02</td>
+            <td>jay</td>
+            <td>american</td>
+        </tr>   -->
+        </tbody>
+    </table>
+    <br>
+    <form name="studentForm">
+        <!-- 盲人上网 无障碍 -->
+        <div>
+            <label for="numInput">序号</label>
+            <input type="number" placeholder="请输入序号" id="numInput" name="studentID" required/>
+        </div>
+        <div>
+            <label for="nameInput">名字</label>
+            <input type="text" placeholder="请输入姓名" id="nameInput" name="studentName" required/>
+        </div>
+        <div>
+            <label for="homeInput">家乡</label>
+            <input type="text" placeholder="请输入家乡" id="homeInput" name="studentHometown" required/>
+        </div>
+        <div>
+            <button type="submit">提交</button>
+        </div>
+    </form>
+    <script>
+        // jason 数组
+        // 1. 对象字面量
+        // 2. jason数据交换格式
+        const Students = [{
+            id: 1,
+            name: 'edison',
+            hometown:'赣州' 
+        },
+        {
+            id: 2,
+            name: 'jsy',
+            hometown:'南昌' 
+        }
+    ]
+    // 函数 封装代码的能力 代码组织思路
+    // 不用写流水账， 超过10行代码，封装成函数
+    const oTBody = document.querySelector('tbody');//DOM编程
+    function renderStudents() {
+        Students.forEach(function(student) {
+            // console.log(student);
+            // es6字符串模板 支持多行
+            oTBody.innerHTML += `
+                <tr>
+                    <td>${student.id}</td>
+                    <td>${student.name}</td>
+                    <td>${student.hometown}</td>
+                </tr>
+            `
+        })
+    }
+
+
+
+    renderStudents();
+    document.forms['studentForm'].addEventListener('submit',function(event) {
+        event.preventDefault();// 阻止默认行为
+        const oStudent = {
+            id: this["studentID"].value,
+            name: this["studentName"].value,
+            hometown: this["studentHometown"].value
+        }
+        // console.log(oStudent);
+        Students.push(oStudent);
+        oTBody.innerHTML = '';
+        renderStudents();
+    })
+    </script>
+</body>
+</html>
