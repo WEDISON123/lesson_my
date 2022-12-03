@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 为什么 var 挂载在window let 却不？
+        // 代码的本质 文本字符串 编辑器
+        // js 编译器 chrome V8引擎 
+        // 分词 var name =  字符串数据类型 
+        // 编译阶段 语法校验 console.log(name); name let 进入暂时性死区
+        // 运行阶段
+        // 内存中声明
+        // console.log(name);// undefined 变量提升
+
+        // 不同的变量 作用域不一样 
+        // VO{global：，name}
+        // 变量查找 按作用域来查找
+        // var name = "windowsName"; // window global scope
+        // var y = 2;
+        // function a() {
+        //     // 作用域链
+        //     // AO{function：,name,x, chain: Global VO}
+        //     var name = "Cherry"; // function scope
+        //     var x = 5;
+        //     console.log(name);
+        //     console.log(x,y);
+        // }
+        // a(); // 一段代码 内存中？ 将会进入执行栈
+        // 'use strict';
+        var name = "windowsName";
+        var a = {
+            name : "cherry",
+            fn: function() {
+                console.log(this.name);
+            }
+        }
+        // a.fn();
+        // window.a.fn();
+        // var b = 1; var c = b 值传递
+        var f = a.fn; // 赋值 函数对象 f指向 引用式赋值
+        f(); // window.f
+
+        // function a() {
+        //     // this 不会指向作用域 而是调用它的对象
+        //     var name = "cherry";
+        //     // 无法确定 this 值 由调用方式决定
+        //     console.log(this.name); 
+        // }
+        // a(); // 函数一定会提升 window window.a();
+        
+    </script>
+</body>
+</html>
