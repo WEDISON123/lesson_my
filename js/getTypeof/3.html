@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symbol</title>
+    <meta name="description" content="标记 独一无二的身份证">
+</head>
+<body>
+    <script>
+        // 
+        // const s = Symbol('sss'); // 函数来声明 BigInt()一样
+        // console.log(typeof s,s); // 不太靠谱    简单数据类型
+        // const foo = Symbol('foo'); // 标签 
+        // const bar = Symbol('foo');
+        // console.log(foo === bar,bar);
+
+        // const s1 = Symbol.for('foo'); // 查找   没找到的话，生成一个
+        // const s2 = Symbol.for('foo');
+        // console.log(s1 === s2);
+
+        // const foo = Symbol('foo'); // 声明 symbol 独一无二
+        // const s1 = Symbol.for('foo');   // 查找了 Symbol
+        // const s2 = Symbol.for('foo');
+        // const s3 = foo;
+        // console.log(s1 === foo,s1 === s2,s3 === foo); // x o o
+
+        // 应用场景
+        const name = Symbol('name'); // name 独一无二
+        const obj = {
+            age: 18,
+            name: 'wen',
+            [name]: 'li',
+            [Symbol()]: '唯一'
+        }
+        console.log(obj);
+        const speak = Symbol('speak');
+        class Person{
+            // 公共方法
+            say() {
+                console.log('hello world');
+            }
+            // private 私有方法
+            [speak]() {
+                
+            }
+        }
+        const zhong = new Person();
+        zhong.say();
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 引用式赋值
+        // person 形参
+        function test(person) {
+            // person 作用域属于 test
+            person.age = 21 // 坏事
+            // 引用式 新的地址
+            person = {
+                name: 'li',
+                age: 19
+            }
+            return person
+        }
+        // 
+        const p1 = {
+            name: 'wen',
+            age: 20
+        }
+        const p2 = test(p1);
+        console.log(p1); // wen 21
+        console.log(p2); // li 19
+    </script>
+</body>
+</html>
