@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>洗脚城 vue App</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 组件化，数据驱动的vue世界 -->
+    </div>
+    <script>
+        // 创建web应用 三明治
+        // 面向开发思想 命名空间
+        const app = Vue.createApp({
+            data() {
+                // 为什么一定是一个对象
+                // data 里面{} 组织了组件要用到的数据
+                return {
+                    counter: 1,
+                    content: 0,
+                    isShowMeal: false,
+                    setMeal: '真空套餐  帝王套餐  夏日套餐'
+                }
+            },
+            // 字符串模板符号，可以换行，特别适合 模板html字符串的结构表达
+            // 组件化搭建页面了
+            template: `
+                <div>    
+                    <div>欢迎光临贵宾{{counter}}位</div>
+                    <div>贵宾{{content}}位下次再来</div>
+                    <!-- vue 世界不做DOM编程 -->
+                    <!-- bindtap v-on:click v-on 事件指令 DOM0 DOM2 addEvrntlistener -->
+                    <!-- vue 指令 diretive -->
+                    <!-- v-on 事件监听指令
+                        wx:for
+                        wx:if
+                        wx:else
+                        :click 哪种事件 -->
+                    <button @click="welcomeBtnClick">有顾客来</button>&nbsp;
+                    <button v-on:click="byeBtnClick">有顾客离开</button>
+                    <div>
+                        <div v-if="isShowMeal">{{setMeal}}</div>
+                        <button @click="showOriHideBtnClick">显示或隐藏套餐</button>
+                    </div>
+                </div>
+            `,
+            // vue 语法 事件方法    小程序组件
+            methods: {
+                showOriHideBtnClick() {
+                    this.isShowMeal = !this.isShowMeal;
+                },
+                welcomeBtnClick() {
+                    // console.log('//');
+                    this.counter ++;
+                },
+                byeBtnClick() {
+                    this.counter --;
+                    this.content ++
+                }
+            },
+            mounted() {
+                console.log('应用挂载到#app节点，且显示了');
+                setInterval(() => {
+                    // this.counter ++
+                },1000)
+            }
+        })
+        const vm = app.mount('#app')
+        console.log(app,vm);
+    </script>
+</body>
+</html>
