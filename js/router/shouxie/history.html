@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- historyRouter -->
+    <!-- #/page 本身功能
+    后端来做 html5 history.pushState -->
+    <nav id="nav">
+        <a href="http://127.0.0.1:5555/lesson_my/js/router/shouxie/history.html/page1">page1</a>
+        <a href="http://127.0.0.1:5555/lesson_my/js/router/shouxie/history.html/page2">page2</a>
+        <a href="http://127.0.0.1:5555/lesson_my/js/router/shouxie/history.html/page3">page3</a>
+        <a href="http://127.0.0.1:5555/lesson_my/js/router/shouxie/history.html/page4">page4</a>
+        <a href="http://127.0.0.1:5555/lesson_my/js/router/shouxie/history.html/page5">page5</a>
+    </nav>
+    <div id="container"></div>
+    <script>
+        // 路由
+            // 1. url
+            //     变  一个url对应一个页面
+            //     hash #实现  缺点是和后端路由形式上不统一，前端路由的一种过渡形式
+            //     page3
+        // 1. 怎么在切换url的时候 页面不重新加载
+        const nav = document.querySelector('#nav');
+        nav.addEventListener('click',function(e) {
+            if(e.target.tagName == 'A') {
+                e.preventDefault();
+                // console.log('---');
+                let href = e.target.href;
+                // console.log(href);
+                // location.href = href; 刷新页面
+                history.pushState({},null,href)
+            }
+        },false)
+    </script>
+</body>
+</html>
