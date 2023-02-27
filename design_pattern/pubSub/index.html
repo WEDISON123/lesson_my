@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 如何实现订阅发布者模式而努力 -->
+    <script>
+        // 楼盘 发布者
+        // 买房者 订阅者
+        const saleOfiice = {
+            'name': 'onePice',
+            clientList: {
+                'squareMeter89': [],
+                'squareMeter120': []
+            } // 慢慢加入订阅者
+        } // 售楼部
+
+        // saleOfiice.listen = function(fn) {
+        //     this.clientList.push(fn)
+        // }
+        saleOfiice.listen = function(key,fn) {
+            if(!this.clientList[key]) { // 如果没有这个分组
+                this.clientList[key] = [] // 初始化
+            }
+                this.clientList[key].push(fn)
+        }
+
+        // saleOfiice.trigger = function() {
+        //     for(let i = 0; i < this.clientList.length; i ++) {
+        //         let client = this.clientList[i]
+        //         client.apply(this, arguments)
+        //     }
+        // }
+        saleOfiice.trigger = function() {
+            const key = Array.prototype.shift.call(arguments) 
+            // key移除, arguments 数据
+            const fns = this.clientList[key]; // 通知的分组
+            if(!fns || fns.length == 0) { // 安全
+                return false
+            }
+            for (let i = 0; i < fns.length; i ++) {
+                let fn = fns[i]
+                fn.apply(this,arguments)
+            }
+        }
+
+        // 关注这个楼盘 listen 监听 涛哥 价格 面积
+        saleOfiice.listen('squareMeter79',function(price, squareMeter) {
+            console.log(this.name);
+            console.log('价格= ' + price)
+            console.log('squareMeter= ' + squareMeter)
+        })
+        // b
+        saleOfiice.listen('squareMeter89',function(price, squareMeter) {
+            console.log(this.name);
+            console.log('价格= ' + price)
+            console.log('squareMeter= ' + squareMeter)
+        })
+        // c
+        saleOfiice.listen('squareMeter120',function(price, squareMeter) {
+            console.log(this.name);
+            console.log('价格= ' + price)
+            console.log('squareMeter= ' + squareMeter)
+        })
+        saleOfiice.trigger('squareMeter79', 12000, 79)
+        // console.log(saleOfiice.clientList);
+    </script>
+</body>
+</html>
